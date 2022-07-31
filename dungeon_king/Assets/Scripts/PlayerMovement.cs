@@ -53,5 +53,13 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Ground")
+        {
+            grounded = false;
+        }
+    }
+
 
 }
