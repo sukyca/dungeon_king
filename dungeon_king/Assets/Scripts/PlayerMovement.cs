@@ -60,6 +60,4 @@ public class PlayerMovement : MonoBehaviour
             grounded = false;
         }
     }
-
-
 }
