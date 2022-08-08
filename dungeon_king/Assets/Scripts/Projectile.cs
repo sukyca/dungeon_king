@@ -3,8 +3,8 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     [SerializeField] private float speed;
-    private bool hit;
     private float direction;
+    private bool hit;
     private float lifetime;
 
     private Animator anim;
@@ -15,7 +15,6 @@ public class Projectile : MonoBehaviour
         anim = GetComponent<Animator>();
         boxCollider = GetComponent<BoxCollider2D>();
     }
-
     private void Update()
     {
         if (hit) return;
@@ -23,7 +22,7 @@ public class Projectile : MonoBehaviour
         transform.Translate(movementSpeed, 0, 0);
 
         lifetime += Time.deltaTime;
-        if(lifetime > 3) Deactivate();
+        if (lifetime > 5) gameObject.SetActive(false);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -32,10 +31,8 @@ public class Projectile : MonoBehaviour
         boxCollider.enabled = false;
         anim.SetTrigger("explode");
     }
-
     public void SetDirection(float _direction)
     {
-
         lifetime = 0;
         direction = _direction;
         gameObject.SetActive(true);
@@ -43,15 +40,13 @@ public class Projectile : MonoBehaviour
         boxCollider.enabled = true;
 
         float localScaleX = transform.localScale.x;
-        if(Mathf.Sign(localScaleX) != _direction)
+        if (Mathf.Sign(localScaleX) != _direction)
             localScaleX = -localScaleX;
 
         transform.localScale = new Vector3(localScaleX, transform.localScale.y, transform.localScale.z);
     }
-
     private void Deactivate()
     {
         gameObject.SetActive(false);
     }
-
 }
