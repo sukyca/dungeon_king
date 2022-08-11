@@ -16,14 +16,12 @@ public class PlayerAttack : MonoBehaviour
         playerMovement = GetComponent<PlayerMovement>();
     }
 
-
     private void Update()
     {
         if (Input.GetMouseButton(0) && cooldownTimer > attackCooldown && playerMovement.canAttack())
             Attack();
 
         cooldownTimer += Time.deltaTime;
-
     }
 
     private void Attack()
@@ -31,12 +29,9 @@ public class PlayerAttack : MonoBehaviour
         anim.SetTrigger("attack");
         cooldownTimer = 0;
 
-        //object pooling 
         fireballs[FindFireball()].transform.position = firePoint.position;
         fireballs[FindFireball()].GetComponent<Projectile>().SetDirection(Mathf.Sign(transform.localScale.x));
     }
-    
-
     private int FindFireball()
     {
         for (int i = 0; i < fireballs.Length; i++)
@@ -44,7 +39,6 @@ public class PlayerAttack : MonoBehaviour
             if (!fireballs[i].activeInHierarchy)
                 return i;
         }
-
         return 0;
     }
 }
