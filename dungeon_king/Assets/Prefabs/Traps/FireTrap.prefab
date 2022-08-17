@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8026165508647593061}
   - component: {fileID: 8026165508647593058}
-  - component: {fileID: 8026165508647593060}
   - component: {fileID: 8026165508647593063}
   - component: {fileID: 8026165508647593062}
+  - component: {fileID: 7790233997857896745}
   m_Layer: 11
   m_Name: FireTrap
   m_TagString: Enemy
@@ -73,9 +73,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 490064777
-  m_SortingLayer: 2
-  m_SortingOrder: 0
+  m_SortingLayerID: -1990670389
+  m_SortingLayer: 3
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 84b0d89aa2c8bfb4c8c1d378fa972fbd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -87,21 +87,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8026165508647593060
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8026165508647593056}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc0fc68e99464034cbab251d37604af2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 1
-  activationDelay: 2
-  activeTime: 2
 --- !u!61 &8026165508647593063
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -148,3 +133,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &7790233997857896745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8026165508647593056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc0fc68e99464034cbab251d37604af2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
+  activationDelay: 0
+  activeTime: 0
