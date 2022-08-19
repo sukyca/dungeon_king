@@ -145,6 +145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc0fc68e99464034cbab251d37604af2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0
-  activationDelay: 0
-  activeTime: 0
+  damage: 1
+  activationDelay: 0.5
+  activeTime: 1
+  firetrapSound: {fileID: 8300000, guid: 522c53888a81b874baf8d4ed74709801, type: 3}

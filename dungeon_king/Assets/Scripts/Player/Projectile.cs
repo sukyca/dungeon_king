@@ -32,7 +32,17 @@ public class Projectile : MonoBehaviour
         anim.SetTrigger("explode");
 
         if(collision.tag == "Enemy")
-            collision.GetComponent<Health>().TakeDamage(1);
+        {
+            try
+            {
+                collision.GetComponent<Health>().TakeDamage(1);
+            }
+            catch
+            {
+                Debug.Log("Enemy does not have a TakeDamage method");
+            }
+        }
+            
     }
     public void SetDirection(float _direction)
     {

@@ -1971,8 +1971,9 @@ MonoBehaviour:
   iFramesDuration: 0
   numberOfFlashes: 0
   components:
-  - {fileID: 0}
   - {fileID: 6850751407217088068}
+  deathSound: {fileID: 8300000, guid: 3d37b847718be1849a9d0b75664fefb6, type: 3}
+  hurtSound: {fileID: 8300000, guid: cde498a437a79434281e0575e8ea9740, type: 3}
 --- !u!114 &6850751407217088068
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2005,6 +2006,7 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 1024
+  fireballSound: {fileID: 8300000, guid: ecbd5ca8c79e0aa47a8f798c5a588749, type: 3}
 --- !u!114 &307324140222222891
 MonoBehaviour:
   m_ObjectHideFlags: 0
