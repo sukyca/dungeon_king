@@ -63,7 +63,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (onWall())
         {
-            body.gravityScale = 0;
+            body.gravityScale = 3;
             body.velocity = Vector2.zero;
         }
         else
@@ -93,7 +93,9 @@ private void Jump()
         else
         {
             if (isGrounded())
+            {
                 body.velocity = new Vector2(body.velocity.x, jumpPower);
+            }
             else
             {
                 //If not on the ground and coyote counter bigger than 0 do a normal jump
