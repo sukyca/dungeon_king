@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -8,16 +7,17 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float jumpPower;
 
     [Header("Coyote Time")]
-    [SerializeField] private float coyoteTime; //How much time the player can hang in the air before he can jump again
-    private float coyoteCounter; //How much time has passed since the player ran off the object
+    [SerializeField] private float coyoteTime; //How much time the player can hang in the air before jumping
+    private float coyoteCounter; //How much time passed since the player ran off the edge
 
-    [Header("MultipleJumps")]
+    [Header("Multiple Jumps")]
     [SerializeField] private int extraJumps;
+    private int jumpCounter;
 
     [Header("Wall Jumping")]
-    [SerializeField] private float wallJumpX;
-    [SerializeField] private float wallJumpY;
-    private int jumpCounter;
+    [SerializeField] private float wallJumpX; //Horizontal wall jump force
+    [SerializeField] private float wallJumpY; //Vertical wall jump force
+
     [Header("Layers")]
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private LayerMask wallLayer;
@@ -63,7 +63,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (onWall())
         {
-            body.gravityScale = 3;
+            body.gravityScale = 0;
             body.velocity = Vector2.zero;
         }
         else
@@ -81,7 +81,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-private void Jump()
+    private void Jump()
     {
         if (coyoteCounter <= 0 && !onWall() && jumpCounter <= 0) return; 
         //If coyote counter is 0 or less and not on the wall and don't have any extra jumps don't do anything
@@ -93,9 +93,7 @@ private void Jump()
         else
         {
             if (isGrounded())
-            {
                 body.velocity = new Vector2(body.velocity.x, jumpPower);
-            }
             else
             {
                 //If not on the ground and coyote counter bigger than 0 do a normal jump
@@ -116,13 +114,12 @@ private void Jump()
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void WallJump()
     {
+        body.AddForce(new Vector2(-Mathf.Sign(transform.localScale.x) * wallJumpX, wallJumpY));
+        wallJumpCooldown = 0;
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-    }
 
     private bool isGrounded()
     {
@@ -137,11 +134,5 @@ private void Jump()
     public bool canAttack()
     {
         return horizontalInput == 0 && isGrounded() && !onWall();
-    }
-
-    private void WallJump()
-    {
-        body.AddForce(new Vector2(-Mathf.Sign(transform.localScale.x) * wallJumpX, wallJumpY));
-        wallJumpCooldown = 0;
     }
 }
