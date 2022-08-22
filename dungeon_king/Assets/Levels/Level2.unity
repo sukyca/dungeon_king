@@ -238,10 +238,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftEdge: {fileID: 1505911653}
   rightEdge: {fileID: 616028078}
-  enemy: {fileID: 0}
+  enemy: {fileID: 1585811256}
   speed: 2
   idleDuration: 1
-  anim: {fileID: 0}
+  anim: {fileID: 1585811261}
 --- !u!4 &41668990
 Transform:
   m_ObjectHideFlags: 0
@@ -1654,6 +1654,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   jumpPower: 20
+  coyoteTime: 0
+  extraJumps: 0
+  wallJumpX: 0
+  wallJumpY: 0
   groundLayer:
     serializedVersion: 2
     m_Bits: 256
@@ -4909,6 +4913,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1074538391 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5476208602431882005, guid: b373e1bf822ae34419b5c1da6a3c5f89, type: 3}
+  m_PrefabInstance: {fileID: 416925662}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1076684534
 GameObject:
   m_ObjectHideFlags: 0
@@ -5364,10 +5373,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftEdge: {fileID: 2020392793}
   rightEdge: {fileID: 554406008}
-  enemy: {fileID: 0}
+  enemy: {fileID: 416925663}
   speed: 2
   idleDuration: 1
-  anim: {fileID: 0}
+  anim: {fileID: 1074538391}
 --- !u!4 &1234042100
 Transform:
   m_ObjectHideFlags: 0
@@ -7017,6 +7026,16 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!4 &1585811256 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6850751407217088125, guid: 2a7946462a396ba478143e27d483f76a, type: 3}
+  m_PrefabInstance: {fileID: 1006341243}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1585811261 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 6850751407217088127, guid: 2a7946462a396ba478143e27d483f76a, type: 3}
+  m_PrefabInstance: {fileID: 1006341243}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1589033860
 PrefabInstance:
   m_ObjectHideFlags: 0
