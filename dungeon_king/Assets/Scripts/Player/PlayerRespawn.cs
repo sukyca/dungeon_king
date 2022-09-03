@@ -16,10 +16,8 @@ public class PlayerRespawn : MonoBehaviour
     public void RespawnCheck()
     {
 
-        Debug.Log("Checking for checkpoint");
         if (currentCheckpoint == null) 
         {
-            Debug.Log("No checkpoint found");
             uiManager.GameOver();
             return;
         }
@@ -29,6 +27,8 @@ public class PlayerRespawn : MonoBehaviour
 
         //Move the camera to the checkpoint's room
         Camera.main.GetComponent<CameraController>().MoveToNewRoom(currentCheckpoint.parent);
+        currentCheckpoint.parent.GetComponent<Room>().ActivateRoom(true);
+
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -37,7 +37,7 @@ public class PlayerRespawn : MonoBehaviour
             currentCheckpoint = collision.transform;
             SoundManager.instance.PlaySound(checkpoint);
             collision.GetComponent<Collider2D>().enabled = false;
-            collision.GetComponent<Animator>().SetTrigger("activate");
+            collision.GetComponent<Animator>().SetTrigger("appear");
         }
     }
 }
