@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine; using System.Collections;
 
 public class CameraController : MonoBehaviour
 {
@@ -11,16 +12,38 @@ public class CameraController : MonoBehaviour
     [SerializeField] private Transform player;
     [SerializeField] private float aheadDistance;
     [SerializeField] private float cameraSpeed;
+    private Animator anim;
     private float lookAhead;
+    private float currentPosY;
+    private float lastPosY;
+    public Vector3 offset;
+    
+    public GameObject character;
+
+    private void Awake()
+    {
+        character=GameObject.FindGameObjectsWithTag("Player")[0];
+        anim = character.GetComponent<Animator>();
+        currentPosY=GameObject.FindGameObjectsWithTag("Player")[0].transform.position.y;
+    }
 
     private void Update()
     {
         //Room camera
         transform.position = Vector3.SmoothDamp(transform.position, new Vector3(currentPosX, transform.position.y, transform.position.z), ref velocity, speed);
+        // transform.position = new Vector3 (player.position.x + offset.x, player.position.y + offset.y, offset.z); // Camera follows the player with specified offset position
+        currentPosY=GameObject.FindGameObjectsWithTag("Player")[0].transform.position.y;
+
+        Debug.Log("current: " + currentPosY.ToString());
+        Debug.Log("last: " + lastPosY.ToString());
 
         //Follow player
-        //transform.position = new Vector3(player.position.x + lookAhead, transform.position.y, transform.position.z);
-        //lookAhead = Mathf.Lerp(lookAhead, (aheadDistance * player.localScale.x), Time.deltaTime * cameraSpeed);
+        if (currentPosY < lastPosY)
+        {
+            transform.position = new Vector3 (player.position.x + offset.x, player.position.y + offset.y, offset.z);
+        }
+
+        lastPosY=GameObject.FindGameObjectsWithTag("Player")[0].transform.position.y;
     }
 
     public void MoveToNewRoom(Transform _newRoom)
