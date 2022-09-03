@@ -38,7 +38,7 @@ public class CameraController : MonoBehaviour
         Debug.Log("last: " + lastPosY.ToString());
 
         //Follow player
-        if (currentPosY < lastPosY)
+        if (currentPosY < lastPosY && ! anim.GetBool("grounded"))
         {
             transform.position = new Vector3 (player.position.x + offset.x, player.position.y + offset.y, offset.z);
         }
