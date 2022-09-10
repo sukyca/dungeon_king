@@ -9,7 +9,7 @@ public class SelectionArrow : MonoBehaviour
     [SerializeField] private AudioClip changeSound;
     [SerializeField] private AudioClip interactSound; 
     private RectTransform rect;
-    private int currentPosition;
+    private int currentPosition = 0;
 
     private void Awake()
     {

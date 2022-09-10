@@ -28,7 +28,6 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D body;
     private Animator anim;
     private BoxCollider2D boxCollider;
-    private float wallJumpCooldown;
     private float horizontalInput;
 
     private void Awake()
@@ -117,7 +116,6 @@ public class PlayerMovement : MonoBehaviour
     private void WallJump()
     {
         body.AddForce(new Vector2(-Mathf.Sign(transform.localScale.x) * wallJumpX, wallJumpY));
-        wallJumpCooldown = 0;
     }
 
 
@@ -133,6 +131,6 @@ public class PlayerMovement : MonoBehaviour
     }
     public bool canAttack()
     {
-        return horizontalInput == 0 && isGrounded() && !onWall();
+        return !onWall();
     }
 }
