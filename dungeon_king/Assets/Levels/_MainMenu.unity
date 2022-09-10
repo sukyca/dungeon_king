@@ -203,7 +203,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 652d23b8d303d9a48b3c75df9f3b87e9, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -773,7 +773,7 @@ MonoBehaviour:
   - {fileID: 1910755850}
   - {fileID: 1756627926}
   changeSound: {fileID: 8300000, guid: d8695c86f9de16844bc994b314b90244, type: 3}
-  interactSound: {fileID: 8300000, guid: 8da2e84d803387946948ce4c155375bc, type: 3}
+  interactSound: {fileID: 8300000, guid: 99727f7fc2d57ee4a92005d3d958bf23, type: 3}
 --- !u!114 &1641009232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1053,9 +1053,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 64aed25b1c4e0a34290158fcd6d46703, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 652d23b8d303d9a48b3c75df9f3b87e9, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.015
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 1
   Mute: 0
