@@ -7,12 +7,27 @@ public class UIManager : MonoBehaviour
 {
     [SerializeField] private GameObject gameOverScreen;
     [SerializeField] private AudioClip gameOverSound;
+    [SerializeField] private GameObject pauseScreen;
 
     private void Awake()
     {
         gameOverScreen.SetActive(false);
+        pauseScreen.SetActive(false);
+        Time.timeScale = 1f;
     }
 
+    public void Pause()
+    {
+        pauseScreen.SetActive(true);
+        Time.timeScale = 0f;
+
+    }
+
+    public void Resume()
+    {
+        pauseScreen.SetActive(false);
+        Time.timeScale = 1f;
+    }
     public void GameOver()
     {
         gameOverScreen.SetActive(true);
@@ -34,5 +49,23 @@ public class UIManager : MonoBehaviour
     {
         Application.Quit();
     }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (!IsPaused())
+                Pause();
+            else
+                Resume();
+        }
+    }
+
+
+    public bool IsPaused()
+    {
+        return pauseScreen.activeSelf;
+    }
+
 
 }
