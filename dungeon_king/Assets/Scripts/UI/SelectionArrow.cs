@@ -9,7 +9,7 @@ public class SelectionArrow : MonoBehaviour
     [SerializeField] private AudioClip changeSound;
     [SerializeField] private AudioClip interactSound; 
     private RectTransform rect;
-    private int currentPosition;
+    private int currentPosition = 0;
 
     private void Awake()
     {
@@ -34,7 +34,7 @@ public class SelectionArrow : MonoBehaviour
         currentPosition += _change;
 
         if(_change != 0)
-            SoundManager.instance.PlaySound(interactSound);
+            SoundManager.instance.PlaySound(changeSound);
 
         if(currentPosition < 0)
         {
