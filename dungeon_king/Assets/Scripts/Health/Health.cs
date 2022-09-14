@@ -22,6 +22,8 @@ public class Health : MonoBehaviour
     [SerializeField] private AudioClip deathSound;
     [SerializeField] private AudioClip hurtSound;
 
+    [SerializeField] private UIManager UIManager;
+
     private void Awake()
     {
         currentHealth = startingHealth;
@@ -91,6 +93,12 @@ public class Health : MonoBehaviour
     private void Deactivate()
     {
         gameObject.SetActive(false);
+    }
+
+    private void DeactivateUncle()
+    {
+        gameObject.SetActive(false);
+        UIManager.Win();
     }
 
     //Respawn

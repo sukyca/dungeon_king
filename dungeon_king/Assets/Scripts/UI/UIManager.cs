@@ -8,11 +8,14 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject gameOverScreen;
     [SerializeField] private AudioClip gameOverSound;
     [SerializeField] private GameObject pauseScreen;
+    [SerializeField] private GameObject winScreen;
 
     private void Awake()
     {
         gameOverScreen.SetActive(false);
         pauseScreen.SetActive(false);
+        winScreen.SetActive(false);
+    
         Time.timeScale = 1f;
     }
 
@@ -35,6 +38,12 @@ public class UIManager : MonoBehaviour
 
     }
 
+    public void Win()
+    {
+        winScreen.SetActive(true);
+        Time.timeScale = 0f;
+    }
+
     public void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
@@ -54,11 +63,12 @@ public class UIManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (!IsPaused())
+            if (Time.timeScale> 0f)
                 Pause();
             else
                 Resume();
         }
+
     }
 
 
