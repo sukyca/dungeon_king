@@ -14,7 +14,16 @@ public class UIManager : MonoBehaviour
     {
         gameOverScreen.SetActive(false);
         pauseScreen.SetActive(false);
-        winScreen.SetActive(false);
+
+        try
+        {
+            winScreen.SetActive(false);
+        }
+        catch
+        {
+            
+        }
+    
     
         Time.timeScale = 1f;
     }
