@@ -9923,6 +9923,7 @@ MonoBehaviour:
   gameOverScreen: {fileID: 3517292}
   gameOverSound: {fileID: 8300000, guid: 02336ef40dedfce4f96ded0faf00a9df, type: 3}
   pauseScreen: {fileID: 0}
+  winScreen: {fileID: 0}
 --- !u!1 &672618086
 GameObject:
   m_ObjectHideFlags: 0
@@ -13349,10 +13350,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2034273797}
     m_Modifications:
+    - target: {fileID: 58071331859427915, guid: 7e64a8ad618f7864f9d5dcb8a01d42a7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 58071332687756121, guid: 7e64a8ad618f7864f9d5dcb8a01d42a7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2
+      objectReference: {fileID: 0}
     - target: {fileID: 58071332852423317, guid: 7e64a8ad618f7864f9d5dcb8a01d42a7, type: 3}
       propertyPath: anim
       value: 
       objectReference: {fileID: 1673146931}
+    - target: {fileID: 58071332852423317, guid: 7e64a8ad618f7864f9d5dcb8a01d42a7, type: 3}
+      propertyPath: enemy
+      value: 
+      objectReference: {fileID: 1673146932}
     - target: {fileID: 58071332852423318, guid: 7e64a8ad618f7864f9d5dcb8a01d42a7, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -17032,6 +17045,7 @@ MonoBehaviour:
   - {fileID: 1088074360}
   deathSound: {fileID: 8300000, guid: 3d37b847718be1849a9d0b75664fefb6, type: 3}
   hurtSound: {fileID: 8300000, guid: cde498a437a79434281e0575e8ea9740, type: 3}
+  UIManager: {fileID: 0}
 --- !u!114 &1088074360
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27566,11 +27580,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5476208602431882007, guid: b373e1bf822ae34419b5c1da6a3c5f89, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.973
+      value: 2.2
       objectReference: {fileID: 0}
     - target: {fileID: 5476208602431882007, guid: b373e1bf822ae34419b5c1da6a3c5f89, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.671
+      value: -1.64
       objectReference: {fileID: 0}
     - target: {fileID: 5476208602431882007, guid: b373e1bf822ae34419b5c1da6a3c5f89, type: 3}
       propertyPath: m_LocalPosition.z
@@ -27613,6 +27627,11 @@ PrefabInstance:
 --- !u!95 &1673146931 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 5476208602431882005, guid: b373e1bf822ae34419b5c1da6a3c5f89, type: 3}
+  m_PrefabInstance: {fileID: 1673146930}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1673146932 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5476208602431882007, guid: b373e1bf822ae34419b5c1da6a3c5f89, type: 3}
   m_PrefabInstance: {fileID: 1673146930}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1677352547
