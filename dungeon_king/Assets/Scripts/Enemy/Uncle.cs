@@ -18,11 +18,13 @@ public class Uncle : MonoBehaviour
     [Header("Attack Sound")]
     [SerializeField] private AudioClip attackSound;
     private float cooldownTimer = Mathf.Infinity;
-    private GameObject Player;
+    private Transform Player;
+    public float distance;
+
 
     //References
     private Animator anim;
-    private Health playerHealth;
+    public Health playerHealth;
     private void Awake()
     {
         anim = GetComponent<Animator>();
@@ -30,13 +32,26 @@ public class Uncle : MonoBehaviour
 
     private void Start()
     {
-        Player = GameObject.Find("Player");
+        Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
 
     private void Update()
     {
         cooldownTimer += Time.deltaTime;
-        transform.position = Vector2.MoveTowards(transform.position,Player.transform.position, speed*Time.deltaTime);
+        
+        if(Vector2.Distance(transform.position, Player.position) >= distance)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, Player.position, speed*Time.deltaTime);
+        }
+
+        if (transform.position.x < Player.position.x)
+        {
+            transform.localScale = new Vector3(1,1,1);
+        }
+        else
+        {
+            transform.localScale = new Vector3(-1,1,1);
+        }
 
         //Attack only when player in sight?
         if (PlayerInSight())

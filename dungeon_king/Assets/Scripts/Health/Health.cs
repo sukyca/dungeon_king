@@ -60,6 +60,20 @@ public class Health : MonoBehaviour
     {
         currentHealth = Mathf.Clamp(currentHealth + _value, 0, startingHealth);
     }
+
+    public bool isDead()
+    {
+        if (currentHealth < 1)
+        {
+            Debug.Log("Uncle is dead");
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
     private IEnumerator Invunerability()
     {
         invulnerable = true;
